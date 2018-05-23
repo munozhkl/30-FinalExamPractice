@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  SEQUENCES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Kathi Munoz.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -134,14 +134,18 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
-
+    list = []
+    for k in range(len(sequence)-1):
+        if sequence[k] == sequence[k+1]:
+            list = list + [k]
+    return list
 
 def run_test_practice_problem4b():
     """ Tests the    practice_problem4b    function. """
@@ -179,6 +183,7 @@ def run_test_practice_problem4b():
     st.SimpleTestCase.run_tests('practice_problem4b', tests)
 
 
+
 def practice_problem4b(sequence):
     """
     What comes in:
@@ -197,14 +202,19 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
-
+    num_to_remember = sequence[0]
+    for k in range(len(sequence)):
+        if k%2 != 1:
+           if num_to_remember < sequence[k]:
+               num_to_remember = sequence[k]
+    return num_to_remember
 
 def run_test_practice_problem4c():
     """ Tests the    practice_problem4c    function. """
@@ -306,7 +316,13 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
-
+    for k in range(len(points)):
+        if is_prime(points[k].x) and is_prime(points[k].y):
+            a = points[k].x
+            points[k].x = points[k].y
+            points[k].y = a
+            return rg.Point(points[k].x, points[k].y)
+    return 'Not found'
 
 def run_test_practice_problem4d():
     """ Tests the    practice_problem4d    function. """
@@ -398,6 +414,11 @@ def practice_problem4d(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+    sum = 0
+    for k in range(len(sequence)-1):
+        if is_prime(sequence[k]) and is_prime(sequence[k+1]) and sequence[k] != sequence[k+1]:
+            sum = sum + sequence[k]
+    return sum
 
 
 # ----------------------------------------------------------------------
