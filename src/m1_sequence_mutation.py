@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS, SEQUENCES and MUTATION  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Kathi Munoz.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -34,7 +34,23 @@ def run_test_zero_changer():
     # TODO: 2. Write at least 2 additional tests for the  zero_changer   function.
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
+    # test 2
+    test2=([], [5,0,3], [0,3,2])
+    expected2 = ([], [5,1,3], [2,3,2])
+    zero_changer(test2)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected2)
+    print('  Actual:  ', test2)
 
+    # test 3
+    test3 = ([0,0,0,0,0], [])
+    expected3 = ([1,2,3,4,5], [])
+    zero_changer(test3)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected3)
+    print('  Actual:  ', test3)
 
 def zero_changer(tuple_of_lists):
     """
@@ -69,7 +85,13 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
-
+    count = 1
+    for k in range(len(tuple_of_lists)):
+        sublist = tuple_of_lists[k]
+        for j in range(len(sublist)):
+            if sublist[j] == 0:
+                sublist[j] = count
+                count = count + 1
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
