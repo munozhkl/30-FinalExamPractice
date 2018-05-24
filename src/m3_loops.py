@@ -142,7 +142,7 @@ def run_test_practice_problem3():
 
     # test 16
     expected = [7]
-    actual = practice_problem3(3, 1, 1.5)
+    actual = practice_problem3(3, 1, 1.4)
     print('Test 16 expected:', expected)
     print('Test 16 actual:', actual)
 
@@ -231,10 +231,10 @@ def practice_problem3(start, n, threshold):
     k = start
     while True:
         sum = math.sin(k) + math.cos(k)
-        if sum > threshold:
-            list = list +[k]
         if len(list) == n:
             break
+        if sum > threshold:
+            list = list +[k]
         k = k + 1
     return list
 
